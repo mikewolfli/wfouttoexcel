@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<BrowseTracker_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="interface\wxpg_utils.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="2230" topLine="149" />
+	</File>
+	<File name="connect_para_dlg.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="530" topLine="41" />
+	</File>
+	<File name="wfouttoexcelMain.h" open="1" top="0" tabpos="2">
+		<Cursor position="803" topLine="22" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="0,0,0,0" />
+	</File>
+	<File name="wfouttoexcelApp.h" open="0" top="0" tabpos="4">
+		<Cursor position="842" topLine="32" />
+	</File>
+	<File name="datepickerdlg.h" open="0" top="0" tabpos="3">
+		<Cursor position="616" topLine="35" />
+	</File>
+	<File name="pugixml\src\pugixml.cpp" open="0" top="0" tabpos="3">
+		<Cursor position="109186" topLine="4008" />
+	</File>
+	<File name="interface\wxPostgreSQL.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="34421" topLine="1300" />
+		<Book_Marks positions="0,0,5788" />
+	</File>
+	<File name="datepickerdlg.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="842" topLine="8" />
+	</File>
+	<File name="wfouttoexcelMain.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="23943" topLine="735" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="6033,8714,10877,19910,8031,36805,11859,56282,18351,83442,11451" />
+	</File>
+	<File name="wfouttoexcelApp.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="3191" topLine="120" />
+	</File>
+	<File name="interface\wxpg_utils.h" open="0" top="0" tabpos="0">
+		<Cursor position="5792" topLine="154" />
+	</File>
+	<File name="interface\wxPostgreSQL.h" open="0" top="0" tabpos="0">
+		<Cursor position="26438" topLine="495" />
+	</File>
+</BrowseTracker_layout_file>

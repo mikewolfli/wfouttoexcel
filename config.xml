@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<connect>
+	<host>10.127.144.62</host>
+	<port>5432</port>
+	<dbname>pgworkflow</dbname>
+	<dbuser>postgres</dbuser>
+	<dbpwd>MXEydzNlNHI=</dbpwd>
+</connect>
+<export>
+	<path>M:\</path>
+</export>

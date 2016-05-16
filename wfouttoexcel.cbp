@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="wfouttoexcel" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/wfouttoexcel" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-D__WXDEBUG__" />
+					<Add directory="$(#wx)/lib/gcc_lib/mswud" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(#wx)/lib/gcc_lib/mswud" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="xlslib/lib/libxlsd.a" />
+					<Add library="libwxmsw31ud.a" />
+					<Add library="libwxmsw31ud_gl.a" />
+					<Add library="libwxexpatd.a" />
+					<Add library="libwxjpegd.a" />
+					<Add library="libwxpngd.a" />
+					<Add library="libwxregexud.a" />
+					<Add library="libwxscintillad.a" />
+					<Add library="libwxtiffd.a" />
+					<Add library="libwxzlibd.a" />
+					<Add directory="$(#wx)/lib/gcc_lib" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/wfouttoexcel" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="$(#wx)/lib/gcc_lib/mswu" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(#wx)/lib/gcc_lib/mswu" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="xlslib/lib/libxls.a" />
+					<Add library="libwxmsw31u" />
+					<Add library="libwxmsw31u_gl" />
+					<Add library="libwxexpat" />
+					<Add library="libwxjpeg" />
+					<Add library="libwxpng" />
+					<Add library="libwxregexu" />
+					<Add library="libwxscintilla" />
+					<Add library="libwxtiff" />
+					<Add library="libwxzlib" />
+					<Add directory="$(#wx)/lib/gcc_lib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-pipe" />
+			<Add option="-mthreads" />
+			<Add option="-D__GNUWIN32__" />
+			<Add option="-D__WXMSW__" />
+			<Add option="-DWXUSINGDLL" />
+			<Add option="-DwxUSE_UNICODE" />
+			<Add directory="$(#wx)/include" />
+			<Add directory="postgresql" />
+			<Add directory="../wfouttoexcel" />
+			<Add directory="xlslib/src" />
+			<Add directory="pugixml/src" />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="$(#wx)/include" />
+		</ResourceCompiler>
+		<Linker>
+			<Add option="-mthreads" />
+			<Add library="postgresql/libpq.a" />
+		</Linker>
+		<Unit filename="connect_para_dlg.cpp" />
+		<Unit filename="connect_para_dlg.h" />
+		<Unit filename="datepickerdlg.cpp" />
+		<Unit filename="datepickerdlg.h" />
+		<Unit filename="interface/wxPostgreSQL.cpp" />
+		<Unit filename="interface/wxPostgreSQL.h" />
+		<Unit filename="interface/wxpg_utils.cpp" />
+		<Unit filename="interface/wxpg_utils.h" />
+		<Unit filename="postgresql/libpq-fe.h" />
+		<Unit filename="postgresql/postgres_ext.h" />
+		<Unit filename="pugixml/src/pugiconfig.hpp" />
+		<Unit filename="pugixml/src/pugixml.cpp" />
+		<Unit filename="pugixml/src/pugixml.hpp" />
+		<Unit filename="resource.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="security/base64.cpp" />
+		<Unit filename="security/base64.h" />
+		<Unit filename="security/md5.cpp" />
+		<Unit filename="security/md5.h" />
+		<Unit filename="security/wxMD5.cpp" />
+		<Unit filename="security/wxMD5.h" />
+		<Unit filename="wfouttoexcelApp.cpp" />
+		<Unit filename="wfouttoexcelApp.h" />
+		<Unit filename="wfouttoexcelMain.cpp" />
+		<Unit filename="wfouttoexcelMain.h" />
+		<Unit filename="wxsmith/datepickerdlg.wxs" />
+		<Unit filename="wxsmith/wfouttoexceldialog.wxs" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="wfouttoexcelApp.cpp" main="wfouttoexcelDialog" init_handlers="necessary" language="CPP" />
+				<resources>
+					<wxDialog wxs="wxsmith/wfouttoexceldialog.wxs" src="wfouttoexcelMain.cpp" hdr="wfouttoexcelMain.h" fwddecl="0" i18n="1" name="wfouttoexcelDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/datepickerdlg.wxs" src="datepickerdlg.cpp" hdr="datepickerdlg.h" fwddecl="0" i18n="1" name="datepickerdlg" language="CPP" />
+				</resources>
+			</wxsmith>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
