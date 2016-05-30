@@ -956,10 +956,45 @@ void wfouttoexcelDialog::init_nonstd_array_head()
 
 void wfouttoexcelDialog::export_nonstd_excel(wxString str_file)
 {
+    datepickerdlg dlg;
+
+    if(dlg.ShowModal()==wxID_CANCEL)
+    {
+        return;
+    }
+
+    bool b_from = dlg.b_from;
+    bool b_to = dlg.b_to;
+
+    wxDateTime dt_from,dt_to;
+
+    if(b_from)
+        dt_from = dlg.dt_from;
+
+    if(b_to)
+        dt_to = dlg.dt_to;
+
     wxString str_sql = wxT("select nstd_mat_app_id,index_mat_id,has_nonstd_draw,contract_id,project_id,project_name,flow_mask, link_list,\
                            res_person,res_engineer, (select name from s_employee where employee_id = res_person) as res_person_name,\
                            (select name from s_employee where employee_id = res_engineer) as res_engineer_name, mat_req_date, drawing_req_date, has_nonstd_mat,\
-                           nonstd_catalog,nonstd_desc,instance_nstd_desc,instance_remarks from v_nonstd_app_item_instance where nstd_mat_app_id != '' AND status !='-1' ORDER BY nstd_mat_app_id ASC;");
+                           nonstd_catalog,nonstd_desc,instance_nstd_desc,instance_remarks from v_nonstd_app_item_instance where nstd_mat_app_id != '' AND status !='-1' ");
+
+    if(b_from  && !b_to)
+    {
+        str_sql = str_sql + wxT("and create_date >='")+DateToStrFormat(dt_from)+wxT("' ORDER BY nstd_mat_app_id ASC;");
+
+    }else if (!b_from && b_to)
+    {
+        str_sql = str_sql + wxT("and create_date <='")+DateToStrFormat(dt_to)+wxT("' ORDER BY nstd_mat_app_id ASC;");
+
+    }else if(b_from && b_to)
+    {
+        str_sql = str_sql + wxT("and create_date <='")+DateToStrFormat(dt_to)+wxT("' and create_date>='")+DateToStrFormat(dt_from)+wxT("' ORDER BY nstd_mat_app_id ASC;");
+    }else
+    {
+        str_sql = str_sql + wxT(" ORDER BY nstd_mat_app_id ASC;");
+
+    }
 
     wxPostgreSQLresult * res = wxGetApp().app_sql_select(str_sql);
 
@@ -1680,11 +1715,45 @@ void wfouttoexcelDialog::init_nonstd_catalog_head()
 
 void wfouttoexcelDialog::export_nonstd_catalog_excel(wxString str_file)
 {
+    datepickerdlg dlg;
+
+    if(dlg.ShowModal()==wxID_CANCEL)
+    {
+        return;
+    }
+
+    bool b_from = dlg.b_from;
+    bool b_to = dlg.b_to;
+
+    wxDateTime dt_from,dt_to;
+
+    if(b_from)
+        dt_from = dlg.dt_from;
+
+    if(b_to)
+        dt_to = dlg.dt_to;
+
     wxString str_sql = wxT("select nstd_mat_app_id,item_ser, index_mat_id,has_nonstd_draw,contract_id,project_id,project_name,flow_mask, link_list,\
                            res_person,res_engineer, (select name from s_employee where employee_id = res_person) as res_person_name,\
                            (select name from s_employee where employee_id = res_engineer) as res_engineer_name, mat_req_date, drawing_req_date, has_nonstd_mat, \
-                           nonstd_catalog,ins_start_date, ins_finish_date,nonstd_desc,index_id from v_nonstd_app_item_instance where  status !='-1' ORDER BY index_mat_id ASC;");
+                           nonstd_catalog,ins_start_date, ins_finish_date,nonstd_desc,index_id from v_nonstd_app_item_instance where  status !='-1' ");
 
+    if(b_from  && !b_to)
+    {
+        str_sql = str_sql + wxT("and create_date >='")+DateToStrFormat(dt_from)+wxT("' ORDER BY index_mat_id ASC;");
+
+    }else if (!b_from && b_to)
+    {
+        str_sql = str_sql + wxT("and create_date <='")+DateToStrFormat(dt_to)+wxT("' ORDER BY index_mat_id ASC;");
+
+    }else if(b_from && b_to)
+    {
+        str_sql = str_sql + wxT("and create_date <='")+DateToStrFormat(dt_to)+wxT("' and create_date>='")+DateToStrFormat(dt_from)+wxT("' ORDER BY index_mat_id ASC;");
+    }else
+    {
+        str_sql = str_sql + wxT(" ORDER BY index_mat_id ASC;");
+
+    }
     wxPostgreSQLresult * res = wxGetApp().app_sql_select(str_sql);
 
     if(res->Status()!= PGRES_TUPLES_OK)
